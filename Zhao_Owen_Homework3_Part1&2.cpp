@@ -12,7 +12,10 @@ using namespace std;
 int main() {
     char type;
     int amount;
+    int withdrawal;
+    int deposit;
     int starting;
+    int final;
 
     ifstream inFile;
     ofstream outFile;
@@ -22,7 +25,10 @@ int main() {
 
     inFile >> starting;
     inFile >> type >> amount;
-    outFile << type << " " << amount;
+
+    while(inFile) {
+
+    }
 
     inFile.close();
     outFile.close();
