@@ -10,12 +10,13 @@
 using namespace std;
 
 int main() {
-    char type;
+    int start;
+    int transaction;
+    int debit = 0;
+    int credit = 0;
+    string type;
     int amount;
-    int withdrawal;
-    int deposit;
-    int starting;
-    int final;
+    int end;
 
     ifstream inFile;
     ofstream outFile;
@@ -23,15 +24,16 @@ int main() {
     inFile.open("transactions.txt");
     outFile.open("Part1out.txt");
 
-    inFile >> starting;
-    inFile >> type >> amount;
-
-    while(inFile) {
-
+    while (!inFile.eof()) {
+        inFile >> end >> transaction >> amount;
+        if (type == "W") {
+            end =- amount;
+            outFile << end;
+        }
     }
 
     inFile.close();
     outFile.close();
-
+    
 return 0;
 }
