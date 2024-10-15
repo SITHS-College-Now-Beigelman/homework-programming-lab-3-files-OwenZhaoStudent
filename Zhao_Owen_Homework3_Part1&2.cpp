@@ -10,30 +10,37 @@
 using namespace std;
 
 int main() {
-    int start;
+    int account;
     int transaction;
     int debit = 0;
     int credit = 0;
-    string type;
+    char type;
     int amount;
     int end;
+    int i;
 
     ifstream inFile;
     ofstream outFile;
 
     inFile.open("transactions.txt");
-    outFile.open("Part1out.txt");
+    outFile.open("out.txt");
 
-    while (!inFile.eof()) {
-        inFile >> end >> transaction >> amount;
-        if (type == "W") {
-            end =- amount;
-            outFile << end;
+    inFile >> account;
+
+    for (i = 0; i <= 7; i++) {
+        inFile >> type >> amount;
+        if (type == 'W') {
+            account -= amount;
+        }
+        else if (type == 'D') {
+            account += amount;
         }
     }
 
+    outFile << account;
+    
     inFile.close();
     outFile.close();
-    
+
 return 0;
 }
